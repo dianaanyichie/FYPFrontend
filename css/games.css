@@ -1,0 +1,286 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: #333;
+    background-color: #f8f8f8;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Navigation Bar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 70px;
+    margin-right: 10px;
+  }
+  
+  .logo .title {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 1.7rem;
+    color: #226F54;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #226F54;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #F4F0BB; 
+    border: 2px solid #FF9F1C;
+    border-radius: 100px;
+  }
+
+  .nav-links .active {
+    background-color: #226F54; 
+    color: white; 
+    border: 2px solid #87C38F;
+  }
+  
+  .nav-links a:hover {
+    color: #007e67;
+  }
+
+  /* Auth Section */
+.auth-section {
+    display: flex;
+    height: 90vh;
+    margin-top: 1rem;
+  }
+  
+  .auth-container {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth-container h2 {
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    color: #DA2C38;
+    font-family: 'Gloria Hallelujah', cursive;
+  }
+  
+  .auth-container form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .auth-container label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .auth-container input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #87C38F;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .auth-btn {
+    background-color: #FF9F1C;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 50px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-weight: bold;
+  }
+  
+  .auth-btn:hover {
+    background-color: #DA2C38;
+  }
+  
+  .login {
+    border-right: 2px solid #f0f0f0;
+  }
+  
+  .signup {
+    border-left: 2px solid #f0f0f0;
+  }
+
+  /* Logged In Page*/
+  .profile-section {
+    background-color: #87C38F;
+    padding: 20px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: left;
+}
+
+.profile-image {
+    width: 500px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 50%;
+    border: 2px solid #DA2C38;
+    background-color: white;
+}
+
+.profile-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.profile-text h1 {
+    font-size: 20px;
+}
+
+.profile-text h2 {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2.8rem;
+    margin: 10px 0;
+}
+
+.profile-text p {
+    margin: 5px 0;
+}
+
+.profile-stats {
+  background-color: #DA2C38;
+  font-family: 'Comic Sans Ms', 'Comic Sans', cursive;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 22px;
+  cursor: pointer;
+  border: 2px solid #F4F0BB;
+  border-radius: 100px;
+  font-size: 1.2rem;
+}
+
+.game-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.game-card {
+  background-color: #FF9F1C;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px auto;
+  border: 2px solid #226F54;
+  text-align: center;
+}
+
+.game-card h3 {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 2.7rem;
+}
+
+.game-card p {
+  margin-bottom: 20px;
+}
+
+.full-width {
+  width: 95%;
+  background-color: #F4F0BB;
+  border: 2px solid #FF9F1C;
+}
+
+.game-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.half-width {
+  width: 45%;
+}
+
+.half-width h3 {
+  font-size: 2.4rem;
+}
+
+.game-image {
+  width: 80%;
+  height: auto;
+  border: 2px solid #226F54;
+  border-radius: 40px;
+  background-color: white;
+}
+
+.full-width img {
+  width: 60%;
+}
+
+.half-width img {
+  border: 2px solid #F4F0BB;
+}
+
+.play-button {
+  background-color: #FF9F1C;
+  color: #333;
+  border: 2px solid #333;
+  padding: 10px 60px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin: 20px auto;
+  font-family: 'Comic Sans Ms', 'Comic Sans', cursive;
+  display: block;
+  font-size: 1.4rem;
+}
+
+.half-width button {
+  background-color: #F4F0BB;
+}
+
+#logout-button {
+  background-color: #DA2C38;
+  color: white;
+  border: 2px solid #333;
+  padding: 10px 40px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-family: 'Comic Sans Ms', 'Comic Sans', cursive;
+  font-size: 1.4rem;
+  display: block;
+  margin: 40px auto;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}

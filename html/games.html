@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Guardians - Login and SignUp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/games.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="/assets/FYPLogo.png" alt="Little Guardians Logo">
+      <span class="title">Little Guardians</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/html/index.html" class="nav-btn">HOME</a></li>
+      <li><a href="/html/animalList.html" class="nav-btn">ANIMAL INDEX</a></li>
+      <li><a href="/html/games.html" class="nav-btn">GAMES</a></li>
+    </ul>
+  </nav>
+
+  <!-- Login/Sign-Up Section -->
+  <!-- Login -->
+  <section class="auth-section">
+    <div class="auth-container login">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" placeholder="Enter your email" required>
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" placeholder="Enter your password" required>
+        <button type="submit" class="auth-btn">LOGIN</button>
+      </form>
+    </div>
+
+    <!-- Sign-Up -->
+    <div class="auth-container signup">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+          <label for="signup-username">Username:</label>
+          <input type="text" id="signup-username" placeholder="Enter your username" required>
+          <label for="signup-email">Email:</label>
+          <input type="email" id="signup-email" placeholder="Enter your email" required>
+          <label for="signup-password">Password:</label>
+          <input type="password" id="signup-password" placeholder="Enter your password" required>
+          <label for="signup-confirm-password">Confirm Password:</label>
+          <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+          <button type="submit" class="auth-btn">SIGN UP</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="/assets/FYPLogo.png" alt="Little Guardians Logo">
+          </div>
+          <div class="footer-links">
+            <a href="/html/index.html">Home</a>
+            <a href="/html/animalList.html">Animal Index</a>
+            <a href="/html/games.html">Games</a>
+            <a href="#contact">Contact</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+          </div>
+          <div class="footer-credits">
+            <p>© 2024 Little Guardians. All Rights Reserved.</p>
+          </div>
+        </div>
+
+       </footer>
+  
+  <script src="/js/script.js"></script>
+  <script type="module" src="/js/firebase.js"></script>
+</body>
+</html>

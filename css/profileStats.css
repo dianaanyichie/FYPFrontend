@@ -1,0 +1,79 @@
+.profile-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.username {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.edit-password {
+    font-family: 'Comic Sans MS', sans-serif;
+    padding: 10px 20px;
+    background-color: #ccc; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.edit-password:hover {
+    background-color: #bbb; 
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.game-card {
+    background-color: #F4F0BB; 
+    border: 2px solid #226F54;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    width: 30%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.game-card h2 {
+    font-family: 'Gloria Hallelujah', cursive;
+    margin-bottom: 10px;
+}
+
+.game-box {
+    height: 100px;
+    background-color: white; 
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-box img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 5px; 
+}
+
+p {
+    font-family: 'Comic Sans MS', sans-serif;
+    margin: 5px 0;
+}
+
+span {
+    font-weight: bold;
+}

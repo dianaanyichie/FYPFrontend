@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Guardians - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="/assets/FYPLogo.png" alt="Little Guardians Logo">
+      <span class="title">Little Guardians</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/html/index.html" class="nav-btn">HOME</a></li>
+      <li><a href="/html/animalList.html" class="nav-btn">ANIMAL INDEX</a></li>
+      <li><a href="/html/games.html" class="nav-btn">GAMES</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-text">
+      <h1>Animals</h1>
+      <p>We all love animals because they’re fun and exciting to be around!
+         But did you know that some animals are in danger right now and might need our help?</p>
+      <!--<button class="hero-btn">Learn More</button> -->
+    </div>
+    <img src="/assets/cat.png" alt="Animal Image" class="hero-image">
+  </header>
+
+  <!-- Intro Video Section -->
+   <section class="intro-video-section">
+    <h1>Listen to Bea's Story!</h1>
+    <video width="100%" controls >
+      <source src="/assets/FYPIntroVideo.mp4" type="video/mp4">
+    </video>
+   </section>
+
+  <!-- What is an Endangered Species -->
+  <section class="info-section">
+    <h2>But first...</h2>
+    <h3>What is an Endangered Species?</h3>
+    <div class="info-box red-bg">
+      <p>Some animals are in big trouble because there aren’t many of them left. This is called being “endangered.” 
+        It means they could disappear forever if we don’t help. 
+        Animals become endangered when things like losing their homes, dirty air and water, too much hunting, 
+        or changes in the weather make it hard for them to survive.</p>
+    </div>
+  </section>
+
+  <!-- Causes Section -->
+<section class="causes-section">
+  <h3>Animals Can Become Endangered From...</h3>
+  <h4>(Click each image to learn more!)</h4>
+  <div class="cause-items">
+    <div class="cause">
+      <img src="/assets/trees.jpg" alt="Reason 1">
+      <p>Habitat Loss</p>
+      <div class="popup hidden">
+        <img src="/assets/trees.jpg" alt="Habitat Loss">
+        <h4>Habitat Loss</h4>
+        <p>When people cut down trees, build cities, or use land for farming, animals lose their homes. 
+          Without their homes, it’s hard for them to stay alive.</p>
+      </div>
+    </div>
+    <div class="cause">
+      <img src="/assets/storm.jpg" alt="Reason 2">
+      <p>Climate Change</p>
+      <div class="popup hidden">
+        <img src="/assets/storm.jpg" alt="Climate Change">
+        <h4>Climate Change</h4>
+        <p>When the weather changes a lot, it can be hard for animals to keep up. This can make fewer animals survive.</p>
+      </div>
+    </div>
+    <div class="cause">
+      <img src="/assets/trash.jpg" alt="Reason 3">
+      <p>Pollution</p>
+      <div class="popup hidden">
+        <img src="/assets/trash.jpg" alt="Pollution">
+        <h4>Pollution</h4>
+        <p>Pollution can make the air, water, and land dirty, which can hurt animals and their homes.</p>
+      </div>
+    </div>
+    <div class="cause">
+      <img src="/assets/overfishing.jpg" alt="Reason 4">
+      <p>Overhunting</p>
+      <div class="popup hidden">
+        <img src="/assets/overfishing.jpg" alt="Overexploitation">
+        <h4>Overhunting</h4>
+        <p>Catching too many fish, hunting, and other activities can make it hard for animals to survive 
+          because there aren’t enough of them left</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Species Endangerment -->
+  <section class="endangered-section">
+    <h2>But!...</h2>
+    <h3>How Do We Know When A Species is Endangered?</h3>
+    <img src="/assets/pettingDog.png" alt="Animal Image" class="side-image">
+    <div class="info-box green-bg">
+      <h2>Well...</h2>
+      <p>There are lots of clues to tell us if an animal is in trouble. One big clue is how many of them are left. 
+        This is called Population Size.</p>
+    </div>
+  </section>
+
+  <!-- Population Density -->
+  <section class="density-section">
+    <h3>Population Size</h3>
+    <div class="info-box orange-bg">
+      <p>If there are less than 2,500 grown-up animals left, they are called “endangered.” But if there are less than 250 grown-ups, 
+        they are in even bigger trouble and called “critically endangered.</p>
+    </div>
+  </section>
+
+  <!-- Population Density Continued-->
+   <section class="density-section-cont">
+    <div class="img-container">
+      <img src="/assets/pettingDog2.png">
+    </div>
+    <div class="info-box yellow-bg">
+      <h2>Who Decides If An Animal is Endangered?</h2>
+      <p>There’s a group called the International Union for Conservation of Nature (IUCN). They make a special list called the “Red List.”
+         It helps people know which animals are safe, which are in trouble, and which are almost gone forever.</p>
+    </div>
+    
+   </section>
+
+   <!-- Endangered Locations-->
+    <section class="endangered-location">
+    <h3>Any Endangered Species Near I Live?</h3>
+    <p>Are there any endangered animals near you? Tap on the map in front of you to find out!</p>
+    <section class="display-animal">
+      <div class="viewport-display">
+        <!-- Display 3D Model -->
+      <model-viewer id="model-viewer" alt="3D model of endangered animal" 
+        auto-rotate camera-controls
+        style="width: 100%; height: 400px; background-color: #F4F0BB;" 
+        ar ar-modes="webxr scene-viewer quick-look">
+      </model-viewer>
+
+      </div>
+      <div class="displayed-animal-info">
+        <div class="animal-info">
+          <h2>Animal Name</h2>
+          <h3>Continent it is in</h3>
+          <p>General info</p>
+        </div>
+        <div class="endangered-reason">
+          <h2>Why Endangered?</h2>
+          <p>Reason why animal is endangered</p>
+        </div>
+      </div>
+    </section>
+    </section>
+
+    <!-- Helping Endangered Species-->
+     <section class="help-endangered">
+      <div class="help-banner">
+        <h2>Oh no!</h2>
+        <h3>How Can I Help?</h3>
+      </div>
+      <p>There are many ways you can help endangered animals around the world.</p>
+      <div class="help-endangered-items">
+        <div class="help">
+          <img src="/assets/gardening.jpg">
+          <h3>Growing Native Plants in Garden</h3>
+          <p>You can help animals by planting plants that grow naturally where you live. 
+            These plants provide food and homes for animals, like birds and butterflies, and help them stay safe.</p>
+        </div>
+        <div class="help">
+          <img src="/assets/cleanUp.jpg">
+          <h3>Help in Local Cleanups</h3>
+          <p>You can help animals by cleaning up trash in your neighborhood or at the park. 
+            Trash can hurt animals, so picking it up keeps their homes safe and clean</p>
+        </div>
+        <div class="help">
+          <img src="/assets/childWithCat.jpg">
+          <h3>Volunteer at Shelter</h3>
+          <p>You can help animals by working with people at animal shelters. Shelters take care of animals that need a home, 
+            and you can help by playing with them, feeding them, or helping keep them clean.</p>
+        </div>
+        <div class="help">
+          <img src="/assets/childAtZoo.jpg">
+          <h3>Visit Conservation</h3>
+          <p>You can help animals by visiting places where they are being protected, like animal parks or reserves. 
+            These places keep animals safe, and by visiting, you’re helping them stay strong and healthy.</p>
+        </div>
+      </div>
+     </section>
+
+     <!-- Closing Message-->
+      <section class="closing-message">
+        <h1>We Can Do It!</h1>
+        <div class="closing-box">
+          <img src="/assets/withDog.png">
+          <p>We can all work together to help save endangered animals around the world! 
+            Big companies are doing amazing work to protect animals, but you can help too! 
+            Every little action, like planting flowers, picking up trash, or learning about animals, can make a big difference.</p>
+        </div>
+        <h2>Become a Little Guardian!</h2>
+        <img src="/assets/FYPLogo.png" id="logo-closing-msg">
+        <p>Become a Little Guardian and help make the world a better place for animals! 
+          You have the power to protect animals and their homes. 
+          Let’s work together to keep our planet safe and happy for all creatures!</p>
+        <img src="/assets/bird.png">
+      </section>
+
+      <!-- Footer-->
+       <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="/assets/FYPLogo.png" alt="Little Guardians Logo">
+          </div>
+          <div class="footer-links">
+            <a href="/html/index.html">Home</a>
+            <a href="/html/animalList.html">Animal Index</a>
+            <a href="/html/games.html">Games</a>
+            <a href="#contact">Contact</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+          </div>
+          <div class="footer-credits">
+            <p>© 2024 Little Guardians. All Rights Reserved.</p>
+          </div>
+        </div>
+
+       </footer>
+
+   <script src="/js/script.js"></script>
+   <script type="module" src="/js/firebase.js"></script>
+   
+</body>
+</html>

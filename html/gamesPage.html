@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Guardians - Animal Index</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/games.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="/assets/FYPLogo.png" alt="Little Guardians Logo">
+      <span class="title">Little Guardians</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/html/index.html" class="nav-btn">HOME</a></li>
+      <li><a href="/html/animalList.html" class="nav-btn">ANIMAL INDEX</a></li>
+      <li><a href="/html/games.html" class="nav-btn">GAMES</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+
+    <div class="profile-section">
+      <div class="profile-text">
+          <h1>Welcome,</h1>
+          <h2><span id="username-display">Username</span></h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="/html/profileStats.html"><button class="profile-stats">PROFILE STATS</button></a>
+      </div>
+      <img src="/assets/withCat.png" alt="Profile Image" class="profile-image">
+  </div>
+
+  <div class="game-section">
+    <!-- First Game - Full Width -->
+    <div class="game-card full-width">
+        <h3>Guess the Continent</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <img src="/assets/map.png" alt="Game Preview" class="game-image">
+        <a href="/html/allGames/guessContinent.html"><button id="game1_btn" class="play-button">PLAY</button></a>
+    </div>
+
+    <!-- Second and Third Games - Side by Side -->
+    <div class="game-row">
+        <div class="game-card half-width">
+            <h3>Guess the Animal</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <img src="/assets/dog.png" alt="Game Preview" class="game-image">
+            <a href="/html/allGames/guessAnimal.html"><button id="game2_btn" class="play-button">PLAY</button></a>
+        </div>
+        <div class="game-card half-width">
+            <h3>Threats to Survival</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <img src="/assets/weather.png" alt="Game Preview" class="game-image">
+            <a href="/html/allGames/guessDanger.html"><button id="game3_btn" class="play-button">PLAY</button></a>
+        </div>
+    </div>
+    </div>
+
+  </main>
+
+  <button id="logout-button">LOGOUT</button>
+
+  <!-- Footer-->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="/assets/FYPLogo.png" alt="Little Guardians Logo">
+      </div>
+      <div class="footer-links">
+        <a href="/html/index.html">Home</a>
+        <a href="/html/animalList.html">Animal Index</a>
+        <a href="/html/games.html">Games</a>
+        <a href="#contact">Contact</a>
+        <a href="#privacy-policy">Privacy Policy</a>
+      </div>
+      <div class="footer-credits">
+        <p>© 2024 Little Guardians. All Rights Reserved.</p>
+      </div>
+    </div>
+
+   </footer>
+
+<script src="/js/script.js"></script>
+<script type="module" src="/js/loggedIn.js"></script>
+</body>
+</html>
