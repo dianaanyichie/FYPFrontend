@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Receive signals from Springboot
   const modelViewer = document.getElementById('model-viewer');
-  const url = "http://192.168.1.7:8080/fyp";
+  const url = "http://172.21.2.53:8080/fyp";
 
   async function fetchSignalAndUpdateModel() {
     try {
