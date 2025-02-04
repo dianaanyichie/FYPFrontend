@@ -36,7 +36,7 @@ document.getElementById("signup-form").addEventListener("submit", async (event) 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log("User signed up:", userCredential.user);
-      alert("Sign-up successful!");
+      alert("Sign-up successful! Please login with your new account");
 
       const user = userCredential.user;
 
