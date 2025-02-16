@@ -72,27 +72,62 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //Receive signals from Springboot
-  const modelViewer = document.getElementById('model-viewer');
-  const url = "http://192.168.1.7:8080/fyp";
-
-  async function fetchSignalAndUpdateModel() {
-    try {
-        const response = await fetch(url, {mode: 'cors'});
-        const signal = await response.text();
-
-        if (signal === "signal1") {
-            modelViewer.src = "/assets/3dModels/apple.glb";
-        } else if (signal === "signal2") {
-            modelViewer.src = "/assets/3dModels/banana.glb";
-        } else {
-            console.log("No valid signal received");
-        }
-    } catch (error) {
-        console.error("Error fetching signal:", error);
+  const animalData = {
+    "signal1": {
+        "model": "/assets/3dModels/apple.glb",
+        "name": "Red Fox",
+        "continent": "North America",
+        "info": "The red fox is a small, omnivorous mammal known for its adaptability.",
+        "reason": "Habitat loss due to deforestation and urbanization."
+    },
+    "signal2": {
+        "model": "/assets/3dModels/banana.glb",
+        "name": "African Elephant",
+        "continent": "Africa",
+        "info": "The African elephant is the largest land mammal, known for its intelligence and social behavior.",
+        "reason": "Poaching for ivory and habitat destruction."
     }
+};
+
+const modelViewer = document.getElementById("model-viewer");
+const url = "http://192.168.1.7:8080/fyp";
+
+async function fetchSignalAndUpdateDisplay() {
+  try {
+      const response = await fetch(url, { mode: "cors" });
+      const signal = await response.text();
+
+      if (animalData[signal]) {
+          updateAnimalDisplay(signal);
+      } else {
+          console.log("No valid signal received");
+      }
+  } catch (error) {
+      console.error("Error fetching signal:", error);
+  }
 }
 
-setInterval(fetchSignalAndUpdateModel, 2000);
+function updateAnimalDisplay(signal) {
+  const animalName = document.querySelector(".animal-info h2");
+  const animalContinent = document.querySelector(".animal-info h3");
+  const animalInfo = document.querySelector(".animal-info p");
+  const endangeredReason = document.querySelector(".endangered-reason p");
+
+  if (animalData[signal]) {
+      modelViewer.setAttribute("src", animalData[signal].model);
+
+      animalName.textContent = animalData[signal].name;
+      animalContinent.textContent = `Found in: ${animalData[signal].continent}`;
+      animalInfo.textContent = animalData[signal].info;
+      endangeredReason.textContent = animalData[signal].reason;
+  } else {
+      console.error("Unknown signal received:", signal);
+  }
+}
+
+setInterval(fetchSignalAndUpdateDisplay, 2000);
+
+
 
   
   
