@@ -73,20 +73,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Receive signals from Springboot
   const animalData = {
-    "signal1": {
-        "model": "/assets/3dModels/apple.glb",
-        "name": "Red Fox",
-        "continent": "North America",
-        "info": "The red fox is a small, omnivorous mammal known for its adaptability.",
-        "reason": "Habitat loss due to deforestation and urbanization."
-    },
-    "signal2": {
-        "model": "/assets/3dModels/banana.glb",
-        "name": "African Elephant",
+    "africa": {
+        "model": "/assets/3dModels/Africa/kihansiSprayToad.glb",
+        "name": "Kihansi Spray Toad",
         "continent": "Africa",
-        "info": "The African elephant is the largest land mammal, known for its intelligence and social behavior.",
-        "reason": "Poaching for ivory and habitat destruction."
+        "info": "A tiny, golden-yellow toad that lives in the misty water spray of Kihansi Falls in Tanzania.",
+        "reason": "A dam built at Kihansi Falls reduced the misty spray that these toads live in, making it hard for them to survive."
+    },
+    "antarctica": {
+        "model": "/assets/3dModels/Antarctica/antarcticFurSeal.glb",
+        "name": "Antarctic Fur Seal",
+        "continent": "Antarctica",
+        "info": "The Antarctic Fur Seal has thick fur to stay warm in cold waters. They swim well and mostly eat krill, fish, and squid.",
+        "reason": "Warmer waters and melting ice makes it harder to find food like krill."
+    },
+    "asia": {
+        "model": "/assets/3dModels/Asia/irrawaddyDolphin.glb",
+        "name": "Irrawaddy Dolphin",
+        "continent": "Asia",
+        "info": "The Irrawaddy Dolphin is a shy dolphin with a round forehead and no sharp beak. It lives in rivers and the sea.",
+        "reason": "Dams and other water projects make it hard for these dolphins to live in the rivers."
+    },
+    "australia": {
+        "model": "/assets/3dModels/Australia/orangeBelliedParrot.glb",
+        "name": "Orange-bellied Parrot",
+        "continent": "Australia",
+        "info": "A super colourful little bird. It’s one of the rarest parrots in the world!",
+        "reason": "The places where it lives, like coastal marshes, have been damaged by farming, building, and other human activities."
+    },
+    "europe": {
+        "model": "/assets/3dModels/Europe/europeanMink.glb",
+        "name": "European Mink",
+        "continent": "Europe",
+        "info": "This is a small, playful animal with soft brown fur and cute white spots around its nose and mouth.",
+        "reason": "Dirty water from farms and factories has made it hard for the European Mink to live in clean, safe rivers and streams."
+    },
+    "northAmerica": {
+        "model": "/assets/3dModels/NorthAmerica/karnerBlueButterfly.glb",
+        "name": "Karner Blue Butterfly",
+        "continent": "North America",
+        "info": "The Karner Blue Butterfly is small with bright blue wings and black-and-white edges. They live in wild lupine plants.",
+        "reason": "People building homes, farming and natural fires have destroyed many lupine plants, which is where these butterflies live."
+    },
+    "southAmerica": {
+        "model": "/assets/3dModels/SouthAmerica/andeanBear.glb",
+        "name": "Andean Bear",
+        "continent": "South America",
+        "info": "The Andean Bear, or Spectacled Bear, has cream markings around its eyes like glasses! It mostly eats plants.",
+        "reason": "People are cutting down forests and turning the land into farms, leaving the Andean Bear with less places to live."
     }
+  
 };
 
 const modelViewer = document.getElementById("model-viewer");
