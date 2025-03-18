@@ -25,6 +25,12 @@ const auth = getAuth(app);
 
 const db = getFirestore();
 
+function formatAnimalName(camelCaseName) {
+    return camelCaseName
+        .replace(/([A-Z])/g, ' $1') 
+        .replace(/^./, str => str.toUpperCase()); 
+}
+
 const animals = {
     europeanMink: ["I am small and playful with soft brown fur.", "I have white spots around my nose and mouth.", "I love living near rivers and streams!"],
     sturgeonFish: ["I am an ancient fish with a long body and bumpy scales.", "I can live for more than 100 years!", "People use my eggs to make a special food called caviar."],
@@ -76,7 +82,7 @@ function startGame() {
         img.alt = animal;
         
         const button = document.createElement("button");
-        button.textContent = animal.charAt(0).toUpperCase() + animal.slice(1);
+        button.textContent = formatAnimalName(animal);
         button.onclick = () => checkAnswer(animal, correctAnimal);
         
         choiceDiv.appendChild(img);
