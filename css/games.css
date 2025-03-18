@@ -176,6 +176,7 @@
 
 .profile-text p {
     margin: 5px 0;
+    font-size: 1.2rem;
 }
 
 .profile-stats {
@@ -212,12 +213,14 @@
 
 .game-card p {
   margin-bottom: 20px;
+  font-size: 1.2rem;
 }
 
 .full-width {
   width: 95%;
   background-color: #F4F0BB;
   border: 2px solid #FF9F1C;
+  padding: 20px 40px;
 }
 
 .game-row {
