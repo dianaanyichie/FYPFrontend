@@ -26,11 +26,20 @@ const auth = getAuth(app);
 const db = getFirestore();
 
 const animals = {
-    lion: ["I am the king of the jungle.", "I have a mane.", "I roar loudly."],
-    elephant: ["I have a long trunk.", "I am the largest land animal.", "I have big ears."],
-    giraffe: ["I have a long neck.", "I eat leaves from tall trees.", "I am spotted."],
-    tiger: ["I have stripes.", "I am a big cat.", "I am a solitary hunter."],
-    panda: ["I love eating bamboo.", "I am black and white.", "I am native to China."]
+    europeanMink: ["I am small and playful with soft brown fur.", "I have white spots around my nose and mouth.", "I love living near rivers and streams!"],
+    sturgeonFish: ["I am an ancient fish with a long body and bumpy scales.", "I can live for more than 100 years!", "People use my eggs to make a special food called caviar."],
+    madagascanBigHeadedTurtle: ["I am a big freshwater turtle with a huge head!", "My head is too big to tuck into my shell.", "I am one of the most endangered turtles in the world."],
+    kihansiSprayToad: ["I am a tiny, golden-yellow toad.", "I live in the misty spray of a big waterfall.", " Instead of laying eggs, I give birth to live babies!"],
+    leadbeatersPossum: [" I have soft grey fur and a fluffy tail.", "I am quick and love to climb trees.", "I wake up at night to find insects and tree sap to eat!"],
+    orangeBelliedParrot: [" I have bright green feathers and a yellow chest.", "Look closely—you’ll see an orange spot on my belly!", " I’m one of the rarest parrots in the whole world!"],
+    andeanBear: ["I have light-colored markings around my eyes that look like glasses!", "I’m the only bear that lives in South America.", " I mostly eat plants"],
+    giantOtter: ["I have smooth fur and webbed feet for swimming.", "I live and play in the water with my family.", "I’m big and love hunting in the water."],
+    blackFootedFerret: ["I have yellow fur and a black mask.", " I live in prairie dog tunnels and come out at night.", " I’m small and have black-tipped feet and tail."],
+    karnerBlueButterfly: [" I have bright blue wings with black-and-white edges.", "Boys are blue, and girls have orange spots.", " I need wild lupine plants to survive."],
+    irrawaddyDolphin: ["I have a round forehead and no sharp beak.", "I live in both rivers and the sea.", "I sometimes play with fishermen."],
+    snowLeopard: [" I have thick grey fur with black spots.", "I live in cold, rocky mountains.", "I’m called the “ghost of the mountains” because I hide so well."],
+    antarcticFurSeal: ["I have thick fur to stay warm in freezing waters.", "Males are bigger and protective.", "I love swimming and eat krill, fish, and squid."],
+    southGeorgiaPipit: ["I’m a small brown bird.", " I live in a cold, snowy place.", "My beautiful song can be heard across the land."]
 };
 
 let score = 0;
@@ -63,7 +72,7 @@ function startGame() {
         choiceDiv.dataset.animal = animal;
         
         const img = document.createElement("img");
-        img.src = `/assets/${animal}.png`; 
+        img.src = `/assets/animalImgs/${animal}.jpeg`; 
         img.alt = animal;
         
         const button = document.createElement("button");
