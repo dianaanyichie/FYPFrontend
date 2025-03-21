@@ -27,25 +27,102 @@ const db = getFirestore();
 
 const animals = [
     {
-        name: "Penguin",
-        imgSrc: "/assets/penguin.png",
-        description: "I am in danger because I am being hunted way too much.",
-        correctOption: "Over-hunting",
+        name: "European Mink",
+        imgSrc: "/assets/animalImgs/europeanMink.jpeg",
+        description: "I am in danger because dirty water is ruining my home",
+        correctOption: "Pollution",
+        wrongOption: "Overhunting"
+    },
+    {
+        name: "Sturgeon Fish",
+        imgSrc: "/assets/animalImgs/sturgeonFish.jpeg",
+        description: "I am in danger because too many of us are being caught",
+        correctOption: "Overhunting",
+        wrongOption: "Climate Change"
+    },
+    {
+        name: "Madagascan Big-headed Turtle",
+        imgSrc: "/assets/animalImgs/madagascanBigHeadedTurtle",
+        description: "I am in danger because too many of us are taken from the wild.",
+        correctOption: "Overhunting",
+        wrongOption: "Habitat Loss"
+    },
+    {
+        name: "Kihansi Spray Toad",
+        imgSrc: "/assets/animalImgs/kihansiSprayToad.jpeg",
+        description: "I am in danger because my misty home has dried up.",
+        correctOption: "Habitat Loss",
         wrongOption: "Pollution"
     },
     {
-        name: "Tiger",
-        imgSrc: "/assets/tiger.png",
-        description: "I am in danger because my habitat is being destroyed.",
+        name: "Leadbeater's Possum",
+        imgSrc: "/assets/animalImgs/leadbeatersPossum.jpeg",
+        description: "I am in danger because forest fires are destroying my fire",
+        correctOption: "Climate Change",
+        wrongOption: "Overhunting"
+    },
+    {
+        name: "Orange-bellied Parrot",
+        imgSrc: "/assets/animalImgs/orangeBelliedParrot.jpeg",
+        description: "I am in danger because my home is being destroyed by people building and farming.",
+        correctOption: "Habitat Loss",
+        wrongOption: "Pollution"
+    },
+    {
+        name: "Andean Bear",
+        imgSrc: "/assets/animalImgs/andeanBear.jpeg",
+        description: "I am in danger because forests are being cut down to make space for farms.",
+        correctOption: "Habitat Loss",
+        wrongOption: "Overhunting"
+    },
+    {
+        name: "Giant Otter",
+        imgSrc: "/assets/animalImgs/giantOtter.jpeg",
+        description: "I am in danger because pollution from gold mining and farming is making my water dirty.",
+        correctOption: "Pollution",
+        wrongOption: "Climate Change"
+    },
+    {
+        name: "Black-footed Ferret",
+        imgSrc: "/assets/animalImgs/blackFootedFerret.jpeg",
+        description: "I am in danger because farms have taken over the prairies where I live.",
         correctOption: "Habitat Loss",
         wrongOption: "Climate Change"
     },
     {
-        name: "Sea Turtle",
-        imgSrc: "/assets/sea-turtle.png",
-        description: "I am in danger because of plastic pollution in the ocean.",
-        correctOption: "Pollution",
-        wrongOption: "Over-hunting"
+        name: "Karner Blue Butterfly",
+        imgSrc: "/assets/animalImgs/karnerBlueButterfly.jpeg",
+        description: "I am in danger because the plants I need are being destroyed by farming and building.",
+        correctOption: "Habitat Loss",
+        wrongOption: "Overhunting"
+    },
+    {
+        name: "Irrawaddy Dolphin",
+        imgSrc: "/assets/animalImgs/irrawaddyDolphin.jpeg",
+        description: "I am in danger because dams and water projects are blocking my home.",
+        correctOption: "Habitat Loss",
+        wrongOption: "Pollution"
+    },
+    {
+        name: "Snow Leopard",
+        imgSrc: "/assets/animalImgs/snowLeopard.jpeg",
+        description: "I am in danger because people hunt me for my fur",
+        correctOption: "Overhunting",
+        wrongOption: "Pollution"
+    },
+    {
+        name: "Antarctic Fur Seal",
+        imgSrc: "/assets/animalImgs/antarcticFurSeal.jpeg",
+        description: "I am in danger because warmer waters make it harder for me to find food.",
+        correctOption: "Climate Change",
+        wrongOption: "Overhunting"
+    },
+    {
+        name: "South Georgia Pipit",
+        imgSrc: "/assets/animalImgs/southGeorgiaPipit.jpeg",
+        description: "I am in danger because human activities disturb the places where I live.",
+        correctOption: "Habitat Loss",
+        wrongOption: "Climate Change"
     }
 ];
 
