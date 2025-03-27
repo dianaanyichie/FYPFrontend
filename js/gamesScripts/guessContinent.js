@@ -111,10 +111,10 @@ async function updateGamePlayCount() {
 
     if (userDoc.exists()) {
         const userData = userDoc.data();
-        const currentCount = userData.guessAnimalCount || 0;
+        const currentCount = userData.guessContinentCount || 0;
 
         const newCount = currentCount + 1;
-        await setDoc(userRef, { guessAnimalCount: newCount }, { merge: true });
+        await setDoc(userRef, { guessContinentCount: newCount }, { merge: true });
         console.log('Game play count updated:', newCount);
     } else {
         console.error("No user data found!");
