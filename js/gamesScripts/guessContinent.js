@@ -25,6 +25,131 @@ const auth = getAuth(app);
 
 const db = getFirestore();
 
+let score = 0;
+let time = 30;
+let timerInterval;
+let currentAnimal;
+
+const animals = [
+    {
+        name: "European Mink",
+        image: "/assets/animalImgs/europeanMink.jpeg",
+        continent: "Europe"
+    },
+    {
+        name: "Sturgeon Fish",
+        image: "/assets/animalImgs/sturgeonFish.jpeg",
+        continent: "Europe"
+    },
+    {
+        name: "Madagascan Big-headed Turtle",
+        image: "/assets/animalImgs/madagascanBigHeadedTurtle.jpeg",
+        continent: "Africa"
+    },
+    {
+        name: "Kihansi Spray Toad",
+        image: "/assets/animalImgs/kihansiSprayToad.jpeg",
+        continent: "Africa"
+    },
+    {
+        name: "Leadbeater's Possum",
+        image: "/assets/animalImgs/leadbeatersPossum.jpeg",
+        continent: "Australia"
+    },
+    {
+        name: "Orange-bellied Parrot",
+        image: "/assets/animalImgs/orangeBelliedParrot.jpeg",
+        continent: "Australia"
+    },
+    {
+        name: "Andean Bear",
+        image: "/assets/animalImgs/andeanBear.jpeg",
+        continent: "South America"
+    },
+    {
+        name: "Giant Otter",
+        image: "/assets/animalImgs/giantOtter.jpeg",
+        continent: "South America"
+    },
+    {
+        name: "Black-footed Ferret",
+        image: "/assets/animalImgs/blackFootedFerret.jpeg",
+        continent: "North America"
+    },
+    {
+        name: "Karner Blue Butterfly",
+        image: "/assets/animalImgs/karnerBlueButterfly.jpeg",
+        continent: "North America"
+    },
+    {
+        name: "Irrawaddy Dolphin",
+        image: "/assets/animalImgs/irrawaddyDolphin.jpeg",
+        continent: "Asia"
+    },
+    {
+        name: "Snow Leopard",
+        image: "/assets/animalImgs/snowLeopard.jpeg",
+        continent: "Asia"
+    },
+    {
+        name: "Antarctic Fur Seal",
+        image: "/assets/animalImgs/antarcticFurSeal.jpeg",
+        continent: "Antarctica"
+    },
+    {
+        name: "South Georgia Pipit",
+        image: "/assets/animalImgs/southGeorgiaPipit.jpeg",
+        continent: "Antarctica"
+    }
+];
+
+function startGame() {
+    score = 0;
+    time = 30;
+    document.getElementById("score").textContent = `Score: ${score}`;
+    document.getElementById("timer").textContent = `Time: ${time}s`;
+    startTimer();
+    loadNewAnimal();
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        time--;
+        document.getElementById("timer").textContent = `Time: ${time}s`;
+        if (time <= 0) {
+            clearInterval(timerInterval);
+            endGame();
+        }
+    }, 1000);
+}
+
+function loadNewAnimal() {
+    currentAnimal = animals[Math.floor(Math.random() * animals.length)];
+    document.getElementById("animal-image").src = currentAnimal.image;
+    document.getElementById("question").textContent = "What continent am I from?";
+}
+
+document.addEventListener("animalSignalReceived", (event) => {
+    const receivedSignal = event.detail;
+    console.log("Received signal in GuessContinent.js:", receivedSignal);
+
+    if (animalData[receivedSignal]) {
+        startGuessingGame(receivedSignal);
+    }
+});
+
+function handlePlayerChoice(selectedContinent) {
+    document.getElementById("player-choice").textContent = `You chose: ${selectedContinent}`;
+    if (selectedContinent === currentAnimal.continent) {
+        alert("Correct!");
+        score += 10;
+        document.getElementById("score").textContent = `Score: ${score}`;
+    } else {
+        alert("Wrong answer!");
+    }
+    loadNewAnimal();
+}
+
 async function endGame() {
 
     const popupContainer = document.getElementById('popup-container');
@@ -128,5 +253,5 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+    startGame();
 });
