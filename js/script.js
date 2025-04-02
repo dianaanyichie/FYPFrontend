@@ -189,8 +189,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const modelViewer = document.getElementById("model-viewer");
 const url = "http://192.168.1.7:8080/fyp";
+let waitingForNewSignal = false;
 
 async function fetchSignalAndUpdateDisplay() {
+
+  if (!waitingForNewSignal) return;
+
   try {
       const response = await fetch(url, { mode: "cors" });
       const signal = await response.text();
@@ -198,6 +202,7 @@ async function fetchSignalAndUpdateDisplay() {
       if (animalData[signal]) {
           console.log("Received continent signal:", signal);
           updateAnimalDisplay(signal);
+          waitingForNewSignal = false;
           
       } else {
           console.log("No valid signal received");
@@ -230,7 +235,11 @@ function updateAnimalDisplay(signal) {
 
 }
 
-setInterval(fetchSignalAndUpdateDisplay, 2000);
+document.querySelector(".choose-another-animal").addEventListener("click", () => {
+  waitingForNewSignal = true;
+  fetchSignalAndUpdateDisplay();
+  console.log("Waiting for a NEW continent signal...");
+});
 
 
 
