@@ -47,6 +47,7 @@ h1 {
 .choice img {
     width: 250px;
     height: auto;
+    border-radius: 10px;
 }
 
 .choice button {

@@ -197,7 +197,7 @@ async function fetchSignalAndUpdateDisplay() {
 
       if (animalData[signal]) {
           updateAnimalDisplay(signal);
-          document.dispatchEvent(new CustomEvent("animalSignalReceived", { detail: signal }));
+          document.dispatchEvent(new CustomEvent("continentSignalReceived", { detail: signal }));
       } else {
           console.log("No valid signal received");
       }

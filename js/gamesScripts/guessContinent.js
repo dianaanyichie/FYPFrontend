@@ -30,6 +30,78 @@ let time = 30;
 let timerInterval;
 let currentAnimal;
 
+//Active Homepage Tab
+document.addEventListener("DOMContentLoaded", function () {
+    
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    
+    const currentPage = window.location.pathname;
+    
+    
+    navLinks.forEach(link => {
+      
+      const linkPage = link.getAttribute('href');
+      
+      
+      if (currentPage.includes(linkPage)) {
+        link.classList.add('active');  
+      } else {
+        link.classList.remove('active');  
+      }
+    });
+  });
+
+  //Animations
+  function handleScroll() {
+    const elements = document.querySelectorAll('header, section');
+    const windowHeight = window.innerHeight;
+
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < windowHeight - 50) { 
+        el.classList.add('show');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  handleScroll();
+
+  //Popups for Causes
+  document.addEventListener("DOMContentLoaded", () => {
+    
+    const causes = document.querySelectorAll(".cause");
+  
+    causes.forEach((cause) => {
+      cause.addEventListener("click", () => {
+        const popup = cause.querySelector(".popup");
+  
+        
+        popup.classList.toggle("hidden");
+      });
+    });
+  
+    document.addEventListener("click", (event) => {
+      causes.forEach((cause) => {
+        const popup = cause.querySelector(".popup");
+        if (!cause.contains(event.target)) {
+          popup.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  //Check login status on games page
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.pathname.includes('games.html')) {
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+        window.location.href = 'gamesPage.html';
+      }
+    }
+  });
+
 const animals = [
     {
         name: "European Mink",
@@ -126,27 +198,45 @@ function startTimer() {
 function loadNewAnimal() {
     currentAnimal = animals[Math.floor(Math.random() * animals.length)];
     document.getElementById("animal-image").src = currentAnimal.image;
-    document.getElementById("question").textContent = "What continent am I from?";
 }
 
-document.addEventListener("animalSignalReceived", (event) => {
-    const receivedSignal = event.detail;
-    console.log("Received signal in GuessContinent.js:", receivedSignal);
+const url = "http://192.168.1.7:8080/fyp"; 
 
-    if (animalData[receivedSignal]) {
-        startGuessingGame(receivedSignal);
-    }
+async function fetchSignalAndUpdateDisplay() {
+  try {
+      const response = await fetch(url, { mode: "cors" });
+      const signal = await response.text();
+
+      if (signal) {
+          console.log("Received continent signal:", signal);
+          document.dispatchEvent(new CustomEvent("continentSignalReceived", { detail: signal }));
+      } else {
+          console.log("No valid signal received");
+      }
+  } catch (error) {
+      console.error("Error fetching signal:", error);
+  }
+}
+
+// Fetch signal every 2 seconds
+setInterval(fetchSignalAndUpdateDisplay, 2000);
+
+// Listen for continent signals and handle player choice
+document.addEventListener("continentSignalReceived", (event) => {
+    const receivedSignal = event.detail;
+    handlePlayerChoice(receivedSignal);
 });
 
 function handlePlayerChoice(selectedContinent) {
-    document.getElementById("player-choice").textContent = `You chose: ${selectedContinent}`;
+    document.getElementById("chosen-continent").textContent = `You chose: ${selectedContinent}`;
+
     if (selectedContinent === currentAnimal.continent) {
         alert("Correct!");
         score += 10;
-        document.getElementById("score").textContent = `Score: ${score}`;
     } else {
         alert("Wrong answer!");
     }
+
     loadNewAnimal();
 }
 
