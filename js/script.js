@@ -187,8 +187,8 @@ document.addEventListener("DOMContentLoaded", function () {
     ]
 };
 
+const modelViewer = document.getElementById("model-viewer");
 const url = "http://192.168.1.7:8080/fyp";
-let fetchInterval = null;
 
 async function fetchSignalAndUpdateDisplay() {
   try {
@@ -198,8 +198,7 @@ async function fetchSignalAndUpdateDisplay() {
       if (animalData[signal]) {
           console.log("Received continent signal:", signal);
           updateAnimalDisplay(signal);
-          clearInterval(fetchInterval);
-          fetchInterval = null; 
+          
       } else {
           console.log("No valid signal received");
       }
@@ -208,33 +207,12 @@ async function fetchSignalAndUpdateDisplay() {
   }
 }
 
-function startFetchingSignal() {
-  if (!fetchInterval) {  
-      fetchInterval = setInterval(fetchSignalAndUpdateDisplay, 2000);
-  }
-}
-
-startFetchingSignal();
-
-document.querySelector(".choose-another-animal").addEventListener("click", () => {
-  console.log("Button clicked: Fetching another animal...");
-  
-  // Stop any existing fetch interval
-  if (fetchInterval) {
-    clearInterval(fetchInterval);
-    fetchInterval = null;
-  }
-
-  // Start a new fetch interval
-  startFetchingSignal();
-});
-
 function updateAnimalDisplay(signal) {
   const animalName = document.querySelector(".animal-info h2");
   const animalContinent = document.querySelector(".animal-info h3");
   const animalInfo = document.querySelector(".animal-info p");
   const endangeredReason = document.querySelector(".endangered-reason p");
-  const modelViewer = document.getElementById("model-viewer");
+  
 
   if (animalData[signal]) {
     const animals = animalData[signal]; 
@@ -251,6 +229,8 @@ function updateAnimalDisplay(signal) {
   }
 
 }
+
+setInterval(fetchSignalAndUpdateDisplay, 2000);
 
 
 
