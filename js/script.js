@@ -241,6 +241,8 @@ document.querySelector(".choose-another-animal").addEventListener("click", () =>
   console.log("Waiting for a NEW continent signal...");
 });
 
+setInterval(fetchSignalAndUpdateDisplay, 1000);
+
 
 
 
