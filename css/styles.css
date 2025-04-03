@@ -377,6 +377,19 @@
     font-weight: bold;
     font-size: 1.2rem;
   }
+
+  .endangered-location button {
+    background-color: #FF9F1C;
+    font-family: 'Comic Sans Ms', 'Comic Sans', cursive;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin-bottom: 22px;
+    cursor: pointer;
+    border: 2px solid #F4F0BB;
+    border-radius: 100px;
+    font-size: 1.2rem;
+  }
   
   .display-animal {
     display: flex;
