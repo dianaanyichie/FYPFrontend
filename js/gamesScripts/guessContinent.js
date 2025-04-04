@@ -102,76 +102,82 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  function formatContinentName(camelCaseName) {
+    return camelCaseName
+        .replace(/([A-Z])/g, ' $1') 
+        .replace(/^./, str => str.toUpperCase()); 
+}
+
 const animals = [
     {
         name: "European Mink",
         image: "/assets/animalImgs/europeanMink.jpeg",
-        continent: "Europe"
+        continent: "europe"
     },
     {
         name: "Sturgeon Fish",
         image: "/assets/animalImgs/sturgeonFish.jpeg",
-        continent: "Europe"
+        continent: "europe"
     },
     {
         name: "Madagascan Big-headed Turtle",
         image: "/assets/animalImgs/madagascanBigHeadedTurtle.jpeg",
-        continent: "Africa"
+        continent: "africa"
     },
     {
         name: "Kihansi Spray Toad",
         image: "/assets/animalImgs/kihansiSprayToad.jpeg",
-        continent: "Africa"
+        continent: "africa"
     },
     {
         name: "Leadbeater's Possum",
         image: "/assets/animalImgs/leadbeatersPossum.jpeg",
-        continent: "Australia"
+        continent: "australia"
     },
     {
         name: "Orange-bellied Parrot",
         image: "/assets/animalImgs/orangeBelliedParrot.jpeg",
-        continent: "Australia"
+        continent: "australia"
     },
     {
         name: "Andean Bear",
         image: "/assets/animalImgs/andeanBear.jpeg",
-        continent: "South America"
+        continent: "southAmerica"
     },
     {
         name: "Giant Otter",
         image: "/assets/animalImgs/giantOtter.jpeg",
-        continent: "South America"
+        continent: "southAmerica"
     },
     {
         name: "Black-footed Ferret",
         image: "/assets/animalImgs/blackFootedFerret.jpeg",
-        continent: "North America"
+        continent: "northAmerica"
     },
     {
         name: "Karner Blue Butterfly",
         image: "/assets/animalImgs/karnerBlueButterfly.jpeg",
-        continent: "North America"
+        continent: "northAmerica"
     },
     {
         name: "Irrawaddy Dolphin",
         image: "/assets/animalImgs/irrawaddyDolphin.jpeg",
-        continent: "Asia"
+        continent: "asia"
     },
     {
         name: "Snow Leopard",
         image: "/assets/animalImgs/snowLeopard.jpeg",
-        continent: "Asia"
+        continent: "asia"
     },
     {
         name: "Antarctic Fur Seal",
         image: "/assets/animalImgs/antarcticFurSeal.jpeg",
-        continent: "Antarctica"
+        continent: "antarctica"
     },
     {
         name: "South Georgia Pipit",
         image: "/assets/animalImgs/southGeorgiaPipit.jpeg",
-        continent: "Antarctica"
+        continent: "antarctica"
     }
 ];
 
@@ -200,16 +206,22 @@ function loadNewAnimal() {
     document.getElementById("animal-image").src = currentAnimal.image;
 }
 
-const url = "http://192.168.1.7:8080/fyp"; 
+const url = "http://192.168.1.7:8080/fyp";
+let waitingForNewSignal = false;
 
 async function fetchSignalAndUpdateDisplay() {
+
+  if (!waitingForNewSignal) return;
+
   try {
       const response = await fetch(url, { mode: "cors" });
       const signal = await response.text();
 
       if (signal) {
           console.log("Received continent signal:", signal);
-          document.dispatchEvent(new CustomEvent("continentSignalReceived", { detail: signal }));
+          handlePlayerChoice(signal);
+          waitingForNewSignal = false;
+          
       } else {
           console.log("No valid signal received");
       }
@@ -218,27 +230,26 @@ async function fetchSignalAndUpdateDisplay() {
   }
 }
 
-// Fetch signal every 2 seconds
-setInterval(fetchSignalAndUpdateDisplay, 2000);
-
-// Listen for continent signals and handle player choice
-document.addEventListener("continentSignalReceived", (event) => {
-    const receivedSignal = event.detail;
-    handlePlayerChoice(receivedSignal);
-});
-
 function handlePlayerChoice(selectedContinent) {
-    document.getElementById("chosen-continent").textContent = `You chose: ${selectedContinent}`;
 
+    const formattedContinent = formatContinentName(selectedContinent);
+    
     if (selectedContinent === currentAnimal.continent) {
-        alert("Correct!");
+        alert(`You chose ${formattedContinent}.\nThat is correct! ✅`);
         score += 10;
+        document.getElementById("score").textContent = `Score: ${score}`;
     } else {
-        alert("Wrong answer!");
+        alert(`You chose ${formattedContinent}.\nThat is wrong! ❌`);
     }
 
     loadNewAnimal();
 }
+
+document.querySelector(".check-answer").addEventListener("click", () => {
+    waitingForNewSignal = true;
+    fetchSignalAndUpdateDisplay();
+    console.log("Waiting for a NEW continent signal...");
+  });
 
 async function endGame() {
 
@@ -259,10 +270,7 @@ async function endGame() {
         score = 0;
         time = 60;
         document.getElementById("score").textContent = `Score: ${score}`;
-        document.getElementById('option1').disabled = false;
-        document.getElementById('option2').disabled = false;
-        loadNewAnimal();
-        startTimer();
+        startGame();
         popupContainer.classList.add('hidden');
         popupContainer.style.display = 'none';
         overlay.style.display = 'none';

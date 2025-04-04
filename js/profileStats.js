@@ -41,9 +41,11 @@ onAuthStateChanged(auth, async (user) => {
 
                 const animalCount = document.getElementById("guess-animal-count");
                 const dangerCount = document.getElementById("guess-danger-count");
+                const continentCount = document.getElementById("guess-continent-count");
 
                 const animalScore = document.getElementById("guess-animal-score");
                 const dangerScore = document.getElementById("guess-danger-score");
+                const continentScore = document.getElementById("guess-continent-score");
  
                 if (usernameElement) {
                     usernameElement.textContent = userData.username;
@@ -61,6 +63,10 @@ onAuthStateChanged(auth, async (user) => {
                   dangerCount.textContent = userData.guessDangerCount;
                 }
 
+                if (continentCount) {
+                    continentCount.textContent = userData.guessContinentCount;
+                  }
+
                 if (animalScore) {
                     animalScore.textContent = userData.guessAnimalHighScore;
                 }
@@ -68,6 +74,10 @@ onAuthStateChanged(auth, async (user) => {
                 if (dangerScore) {
                   dangerScore.textContent = userData.guessDangerHighScore;
                 }
+
+                if (continentScore) {
+                    continentScore.textContent = userData.guessContinentHighScore;
+                  }
 
             } else {
                 console.error("No user data found!");
