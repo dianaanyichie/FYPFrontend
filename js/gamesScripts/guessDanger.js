@@ -42,7 +42,7 @@ const animals = [
     },
     {
         name: "Madagascan Big-headed Turtle",
-        imgSrc: "/assets/animalImgs/madagascanBigHeadedTurtle",
+        imgSrc: "/assets/animalImgs/madagascanBigHeadedTurtle.jpeg",
         description: "I am in danger because too many of us are taken from the wild.",
         correctOption: "Overhunting",
         wrongOption: "Habitat Loss"
