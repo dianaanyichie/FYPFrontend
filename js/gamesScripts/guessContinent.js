@@ -183,7 +183,7 @@ const animals = [
 
 function startGame() {
     score = 0;
-    time = 30;
+    time = 60;
     document.getElementById("score").textContent = `Score: ${score}`;
     document.getElementById("timer").textContent = `Time: ${time}s`;
     startTimer();

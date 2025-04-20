@@ -127,7 +127,7 @@ const animals = [
 ];
 
 let score = 0;
-let time = 10;
+let time = 30;
 let timerInterval;
 let currentAnimalIndex;
 
@@ -194,7 +194,7 @@ async function endGame() {
     playAgainButton.textContent = 'Play Again?';
     playAgainButton.onclick = () => {
         score = 0;
-        time = 60;
+        time = 30;
         document.getElementById("score").textContent = `Score: ${score}`;
         document.getElementById('option1').disabled = false;
         document.getElementById('option2').disabled = false;

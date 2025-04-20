@@ -135,7 +135,7 @@ async function endGame() {
     playAgainButton.textContent = 'Play Again?';
     playAgainButton.onclick = () => {
         score = 0;
-        time = 60;
+        time = 30;
         document.getElementById("score").textContent = `Score: ${score}`;
         choices.style.pointerEvents = 'auto';
         startGame();
