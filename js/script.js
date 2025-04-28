@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const modelViewer = document.getElementById("model-viewer");
 const url = "http://192.168.1.7:8080/fyp";
+//other url
 let waitingForNewSignal = false;
 
 async function fetchSignalAndUpdateDisplay() {
